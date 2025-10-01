@@ -1,0 +1,74 @@
+<!-- Header -->
+<header class="w-full px-5 py-3 flex items-center justify-between gap-x-5">
+
+  <!-- Logo -->
+  <a href="#" class="h-8 bg-white py-1.5">
+    <img src="https://task-utp.netlify.app/img/logo.png" alt="Logo" class="h-full object-cover">
+  </a>
+
+  <!-- User Logged -->
+  <div class="flex items-center gap-x-4">
+
+    <!-- Notifications -->
+    <button
+      class="size-8 flex items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 hover:text-black">
+      <lucide-icon [name]="Bell" class="size-5 stroke-[1.5]" />
+    </button>
+
+    <!-- User Avatar -->
+    <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
+
+      <!-- Button -->
+      <button id="hs-dropdown-default" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown"
+        class="hs-dropdown-toggle flex items-center gap-x-3 sm:pl-3 sm:border-l border-gray-400">
+        <div class="text-end hidden sm:block">
+          <p class="text-sm">Hola,
+            <span class="font-semibold">
+              Juan Daniel
+            </span>
+          </p>
+          <p class="text-xs text-gray-600">Estudiante</p>
+        </div>
+        <div class="size-8 rounded-full overflow-hidden bg-gray-200">
+          <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover">
+        </div>
+        <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      <!-- Menu -->
+      <div
+        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+        role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
+        <div class="p-1 space-y-0.5">
+          <a href="#"
+            class="flex items-center gap-x-2 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100">
+            <lucide-icon [name]="User" class="size-5 stroke-[1.5]" />
+            Ver Perfil
+          </a>
+          <a href="#"
+            class="flex items-center gap-x-2 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100">
+            <lucide-icon [name]="Users" class="size-5 stroke-[1.5]" />
+            Ver Comunidades
+          </a>
+          <a href="#"
+            class="flex items-center gap-x-2 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100">
+            <lucide-icon [name]="Cog" class="size-5 stroke-[1.5]" />
+            Configuraciones
+          </a>
+          <a href="#"
+            class="flex items-center gap-x-2 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100">
+            <lucide-icon [name]="LogOut" class="size-5 stroke-[1.5]" />
+            Cerrar Sesión
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</header>
+<!-- End Header  -->

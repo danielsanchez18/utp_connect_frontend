@@ -1,0 +1,50 @@
+<!-- Sidebar -->
+<div class="flex flex-col py-5 px-5 space-y-7">
+
+  <div class="px-5 flex">
+    <!-- Logo -->
+    <a href="#" class="h-9 bg-white py-1.5">
+      <img src="https://task-utp.netlify.app/img/logo.png" alt="Logo" class="h-full object-cover">
+    </a>
+  </div>
+
+  <!-- Menu -->
+  <div class="flex flex-col space-y-1">
+
+    <a
+        class="px-5 py-2 text-sm max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
+        routerLink="/"
+        routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary"
+        [routerLinkActiveOptions]="{exact: true}"
+        [attr.data-hs-overlay]="isMobile ? '#sidebar' : null"
+      >
+        <lucide-icon [name]="House" class="size-4" />
+        Inicio
+      </a>
+
+    @for (link of links; track $index) {
+
+      <a
+        class="px-5 text-sm py-2 max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
+        routerLink="{{link.href}}"
+        routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary"
+        [attr.data-hs-overlay]="isMobile ? '#sidebar' : null"
+      >
+        <lucide-icon [name]="link.icon" class="size-4" />
+        {{link.text}}
+      </a>
+
+    }
+
+
+  </div>
+
+
+  <!-- User Avatar -->
+  <div>
+
+  </div>
+
+</div>
+
+<!-- En Sidebar -->

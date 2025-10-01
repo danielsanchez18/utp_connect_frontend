@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "../node_modules/preline/variants.css";
+
+@source "../node_modules/preline/dist/*.js";
+
+@plugin "@tailwindcss/forms";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@custom-variant hover (&:hover);
+
+
+@theme {
+
+  --font-primary: "Lato", sans-serif;
+
+  --color-primary: #51965c;
+  --color-primary-light: #75b37f;
+  --color-primary-dark: #396f42;
+
+}
+
+/* * {
+  @apply [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar]:h-2
+  [&::-webkit-scrollbar-track]:rounded-full
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-gray-300;
+} */
+
+:root {
+  /* @apply font-primary  ; */
+}
+
+.btn-primary {
+  @apply bg-primary flex items-center justify-center gap-x-2 text-white font-medium rounded-lg px-4 py-2 hover:bg-primary-dark transition-colors duration-300
+  disabled:cursor-not-allowed disabled:bg-white disabled:hover:bg-white disabled:text-gray-800 disabled:border disabled:border-gray-200;
+}
+
+.btn-secondary {
+  @apply bg-white flex items-center justify-center gap-x-2 text-primary text-sm font-medium rounded-lg px-4 py-2 border border-primary hover:bg-gray-50 transition-colors duration-300;
+}
+
+input, textarea, select {
+  @apply focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
