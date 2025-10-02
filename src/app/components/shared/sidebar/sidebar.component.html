@@ -1,33 +1,33 @@
 <!-- Sidebar -->
-<div class="flex flex-col py-5 px-5 space-y-7">
+<div class="flex flex-col py-5 px-5 space-y-7 h-full">
 
+  <!-- Logo -->
   <div class="px-5 flex">
-    <!-- Logo -->
     <a href="#" class="h-9 bg-white py-1.5">
-      <img src="https://task-utp.netlify.app/img/logo.png" alt="Logo" class="h-full object-cover">
+      <img src="/img/logos/logo.png" alt="Logo" class="h-full object-cover">
     </a>
   </div>
 
   <!-- Menu -->
-  <div class="flex flex-col space-y-1">
+  <div class="h-full flex flex-col space-y-1">
 
     <a
-        class="px-5 py-2 text-sm max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
-        routerLink="/"
-        routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary"
-        [routerLinkActiveOptions]="{exact: true}"
-        [attr.data-hs-overlay]="isMobile ? '#sidebar' : null"
-      >
-        <lucide-icon [name]="House" class="size-4" />
-        Inicio
-      </a>
+      class="px-5 py-2 text-sm max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
+      routerLink="/"
+      routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary font-medium"
+      [routerLinkActiveOptions]="{exact: true}"
+      [attr.data-hs-overlay]="isMobile ? '#sidebar' : null"
+    >
+      <lucide-icon [name]="NewspaperIcon" class="size-4" />
+      Feed
+    </a>
 
     @for (link of links; track $index) {
 
       <a
         class="px-5 text-sm py-2 max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
         routerLink="{{link.href}}"
-        routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary"
+        routerLinkActive="text-primary max-sm:bg-gray-100 border-l-primary font-medium"
         [attr.data-hs-overlay]="isMobile ? '#sidebar' : null"
       >
         <lucide-icon [name]="link.icon" class="size-4" />
@@ -36,12 +36,29 @@
 
     }
 
-
+    <button
+      class="px-5 py-2 text-sm max-sm:rounded-lg text-gray-800 sm:border-l-2 border-transparent hover:bg-gray-100 flex items-center gap-x-3 sm:gap-x-2.5"
+    >
+      <lucide-icon [name]="LogOut" class="size-4" />
+      Cerrar sesión
+    </button>
   </div>
 
 
   <!-- User Avatar -->
-  <div>
+
+  <div class="border-t border-gray-200 py-5 flex gap-x-3">
+
+    <!-- Photo -->
+    <div class="size-10 min-w-10 rounded-full overflow-hidden bg-gray-200">
+      <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover">
+    </div>
+
+    <!-- Name & Role -->
+    <div>
+      <p class="text-sm font-semibold line-clamp-1">Juan Daniel Sánchez Pisfil</p>
+      <p class="text-xs text-gray-600">Estudiante</p>
+    </div>
 
   </div>
 

@@ -1,18 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { LucideAngularModule, Info, User, AtSign } from 'lucide-angular';
 
 @Component({
-  selector: 'page-login',
+  selector: 'page-register',
   imports: [
-    CommonModule,
-    LucideAngularModule,
+    LucideAngularModule
   ],
-  templateUrl: './login.component.html',
+  templateUrl: './register.component.html',
 })
-export class PageLogin {
+export class PageRegister {
 
-  readonly Info = Info;
   readonly User = User;
   readonly AtSign = AtSign;
 

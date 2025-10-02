@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ClipboardListIcon, House, Lightbulb, LucideAngularModule, NewspaperIcon, Bell, TrendingUp, User } from 'lucide-angular';
+import { ClipboardListIcon, House, Lightbulb, LucideAngularModule, NewspaperIcon, Bell, TrendingUp, User, Folder, Cog, LogOut } from 'lucide-angular';
 
 @Component({
   selector: 'component-shared-sidebar',
@@ -19,13 +19,17 @@ export class ComponentSharedSidebar {
   readonly Bell = Bell;
   readonly TrendingUp = TrendingUp;
   readonly User = User;
+  readonly Folder = Folder;
+  readonly Cog = Cog;
+  readonly LogOut = LogOut;
 
   links = [
-    { href: "proyectos", text: "Proyectos", icon: ClipboardListIcon },
+    { href: "portafolio", text: "Portafolio", icon: Folder },
     { href: "ideas", text: "Semillero de Ideas", icon: Lightbulb },
     { href: "tendencias", text: "Tendencias", icon: TrendingUp },
     { href: "notificaciones", text: "Notificaciones", icon: Bell },
-    { href: "Perfil", text: "Perfil", icon: User },
+    { href: "perfil", text: "Mi Perfil", icon: User },
+    { href: "configuraciones", text: "Configuraciones", icon: Cog },
   ];
 
   isMobile: boolean = false;

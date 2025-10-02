@@ -1,7 +1,7 @@
-<section class="flex flex-col lg:flex-row min-h-[100dvh]">
+<section class="flex flex-col lg:flex-row h-[100dvh]">
 
   <!-- Sidebar -->
-  <div class="hidden lg:block lg:w-72 border-r border-gray-200">
+  <div class="hidden lg:block lg:w-80 border-r border-gray-200">
     <component-shared-sidebar />
   </div>
 
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1">
+    <div class="flex-1 overflow-y-auto">
       <router-outlet />
     </div>
   </div>

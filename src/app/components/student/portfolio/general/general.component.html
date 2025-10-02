@@ -1,0 +1,36 @@
+<section class="space-y-5 max-sm:px-3">
+  <div class="flex items-center justify-between gap-x-5">
+    <h1 class="text-xl font-medium">Portafolio</h1>
+    <button type="button"
+      class="text-sm font-medium rounded-lg py-2 px-3 text-white bg-primary hover:bg-primary-dark">
+      Subir <span class="max-sm:hidden">trabajo</span>
+    </button>
+  </div>
+  <div class="flex border-b border-gray-300 gap-x-1">
+    <a
+      routerLink="/portafolio"
+      routerLinkActive="border-b-primary font-semibold text-primary"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="text-sm border-b-2 border-transparent px-4 py-1 pb-3 text-gray-800">
+      Todos
+    </a>
+    <a
+      routerLink="personal"
+      routerLinkActive="border-b-primary font-semibold text-primary"
+      class="text-sm border-b-2 border-transparent px-4 py-1 pb-3 text-gray-800">
+      Personal
+    </a>
+    <a
+      routerLink="grupal"
+      routerLinkActive="border-b-primary font-semibold text-primary"
+      class="text-sm border-b-2 border-transparent px-4 py-1 pb-3 text-gray-800">
+      Grupal
+    </a>
+    <a
+      routerLink="populares"
+      routerLinkActive="border-b-primary font-semibold text-primary"
+      class="text-sm border-b-2 border-transparent px-4 py-1 pb-3 text-gray-800">
+      Populares
+    </a>
+  </div>
+</section>

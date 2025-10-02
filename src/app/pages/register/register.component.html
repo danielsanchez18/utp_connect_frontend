@@ -1,8 +1,8 @@
 <section class="grid lg:grid-cols-2 min-h-[100dvh]">
 
   <!-- Image Student -->
-  <div class="h-full w-full hidden lg:flex items-center justify-center">
-    <img src="/img/draws/draw_social.png" alt="Logo" class="h-full max-h-96 object-cover">
+  <div class="h-full w-full hidden lg:flex items-center justify-center order-2">
+    <img src="/img/draws/draw_signup.png" alt="Logo" class="h-full max-h-96 object-cover">
   </div>
   <!-- End Image Student -->
 
@@ -22,20 +22,45 @@
     <!-- End Title -->
 
     <!-- Form -->
-    <form class="grid">
-      <div class="flex items-center gap-x-2">
-        <p class="text-gray-600">Ingresa tu datos para
-          <span class="text-gray-950 font-semibold">iniciar sesión</span>
+    <form class="grid grid-cols-2 gap-5">
+      <div class="flex items-center gap-x-2 col-span-2 mb-2">
+        <p class="text-gray-600">
+          <span class="text-gray-950 font-semibold">Registra</span>
+          tu datos
         </p>
         o
-        <a href="registro"
+        <a href="ingresar"
           class="text-primary underline font-semibold">
-          regístrate
+          inicia sesión
         </a>
       </div>
 
+      <!-- Name -->
+      <div class="space-y-2">
+        <p class="text-sm font-semibold">Nombre</p>
+        <!-- Input Name -->
+        <input type="text"
+          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+          placeholder="Ingrese su nombre"
+          required
+        >
+      </div>
+      <!-- End Name -->
+
+      <!-- Lastname -->
+      <div class="space-y-2">
+        <p class="text-sm font-semibold">Apellidos</p>
+        <!-- Input Lastname -->
+        <input type="text"
+          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+          placeholder="Ingrese sus apellidos"
+          required
+        >
+      </div>
+      <!-- End Lastname -->
+
       <!-- Email -->
-      <div class="space-y-2 mt-5">
+      <div class="space-y-2 col-span-2">
         <p class="text-sm font-semibold">Correo</p>
         <!-- Input Email -->
         <div class="relative">
@@ -54,7 +79,7 @@
       <!-- End Email -->
 
       <!-- Password -->
-      <div class="space-y-2 mt-5">
+      <div class="space-y-2 col-span-2">
         <p class="text-sm font-semibold">Contraseña</p>
         <!-- Input Password -->
         <div class="relative">
@@ -80,17 +105,12 @@
       </div>
       <!-- End Password -->
 
-      <!-- Button & Forgot Password -->
-      <div class="mt-7 space-y-3">
-        <!-- Forgot Password -->
-        <a href="" class="block ml-auto w-fit text-sm font-semibold text-primary hover:underline">
-          Restablecer contraseña
-        </a>
-
+      <!-- Button -->
+      <div class="mt-5 col-span-2">
         <!-- Button -->
         <a href="/">
           <button class="text-sm font-semibold text-white text-center w-full rounded-md py-2.5 px-4 bg-primary">
-            Iniciar Sesión
+            Crear Cuenta
           </button>
         </a>
       </div>

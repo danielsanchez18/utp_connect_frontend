@@ -1,0 +1,431 @@
+<!-- List Posts -->
+<div class="mb-5">
+
+  <button class="px-5 pt-5 pb-2 rounded-xl w-full bg-white border border-gray-200 hover:shadow space-y-7">
+
+    <!-- Section User -->
+    <section class="flex items-center gap-x-3">
+
+      <!-- Photo -->
+      <button class="size-10 rounded-full overflow-hidden min-w-10">
+        <div class="size-full bg-primary text-white text-xl font-semibold flex items-center justify-center">J</div>
+        <!-- <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover"> -->
+      </button>
+
+      <!-- Details -->
+      <div class="w-full space-y-1">
+        <!-- Name & Role -->
+        <div class="flex items-center gap-x-2">
+          <a href="#"
+            class="text-sm font-semibold hover:underline">
+            Juan Pérez
+          </a>
+        </div>
+
+        <!-- Area -->
+        <!-- <a href="#"
+          class="block text-xs hover:underline w-fit">
+          Ingeniería de Sistemas e Informática
+        </a> -->
+
+        <!-- Date & Type Post -->
+        <div class="flex items-center gap-x-2">
+          <p class="text-xs text-gray-600 text-nowrap">26 de septiembre a las 7:31 p.m.</p>
+          <div class="size-1 rounded-full bg-gray-600"></div>
+          <div class="flex items-center gap-x-1">
+            <lucide-icon [name]="Users" class="size-3.5 text-gray-600" />
+            <span class="max-sm:hidden text-xs text-gray-600">Grupal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="flex items-center">
+        <!-- Button More -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="EllipsisVertical" class="size-4 rotate-45  " />
+        </button>
+
+        <!-- Button Close -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="X" class="size-4 rotate-45" />
+        </button>
+      </div>
+    </section>
+    <!-- End Section User -->
+
+    <!-- Section Content -->
+    <section class="space-y-1 text-start">
+
+      <!-- Title -->
+      <h1 class="text-lg font-semibold line-clamp-2">
+        Sistema de Gestión Universitaria con Arquitectura MicroServicios en JavaScript
+      </h1>
+
+      <!-- Desciption -->
+      <p class="text-sm text-gray-600">
+        Desarrollo de una plataforma web completa para la gestión integral de estudiants, profesores y mateias utilizando JavaScript, React, Node.js y microservicios.
+        Incluye módulos de inscipciones, notas, horarios y comunicación en tiempo real. El proyecto implementa clean architecture y patros de diseño para
+        garantizar escalabilidad y mantenimiento fácil.
+      </p>
+    </section>
+    <!-- End Section Content -->
+
+
+    <!-- Section Team -->
+    <section class="px-3 py-3 bg-gray-100 rounded-xl space-y-3">
+
+      <!-- Team & Participants -->
+      <div class="flex items-center gap-x-5 text-sm">
+        <p class="font-semibold">Equipo del proyecto</p>
+        <p class="ml-auto">4 integrantes</p>
+      </div>
+
+      <!-- Members -->
+      <div class="flex items-center gap-x-2">
+        <!-- Photos -->
+        <div class="flex items-center -space-x-2.5">
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">M</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">C</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">A</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">D</div>
+        </div>
+
+        <!-- Names -->
+        <p class="text-sm text-gray-600 text-start line-clamp-1">María Gonzales, Carlos Rodriguez, Ana López y 1 más</p>
+      </div>
+    </section>
+    <!-- End Section Team -->
+
+    <!-- Section View Document -->
+    <section class="px-3 py-3 bg-primary/10 rounded-xl flex items-center gap-x-2 -mt-5">
+      <lucide-icon [name]="Eye" class="text-primary size-5" />
+      <p class="text-sm line-clamp-1">Documento disponible: Archivo Zip</p>
+      <a href="#"
+        class="ml-auto text-start text-nowrap text-sm bg-white text-primary font-semibold border border-primary rounded-lg px-2.5 py-1.5"
+      >
+        Ver
+        <span class="max-sm:hidden">proyecto</span>
+      </a>
+    </section>
+    <!-- End Section View Document -->
+
+    <!-- Section Likes, Comments & Share -->
+    <section class="border-t pt-2 border-gray-200 flex items-center">
+
+      <!-- Likes -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="text-primary size-5" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.99 10.99 0 0 0 15 8" />
+        </svg>
+        <p class="text-sm">235 me gusta</p>
+      </button>
+
+      <!-- Comments -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <lucide-icon [name]="MessageCircle" class="text-primary size-5" />
+        <p class="text-sm">21 comentarios</p>
+      </button>
+
+      <!-- Share -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="size-5 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m21.707 11.293l-8-8A1 1 0 0 0 12 4v3.545A11.015 11.015 0 0 0 2 18.5V20a1 1 0 0 0 1.784.62a11.46 11.46 0 0 1 7.887-4.049c.05-.006.175-.016.329-.026V20a1 1 0 0 0 1.707.707l8-8a1 1 0 0 0 0-1.414M14 17.586V15.5a1 1 0 0 0-1-1c-.255 0-1.296.05-1.562.085a14 14 0 0 0-7.386 2.948A9.013 9.013 0 0 1 13 9.5a1 1 0 0 0 1-1V6.414L19.586 12Z" />
+        </svg>
+        <p class="text-sm">Compartir</p>
+      </button>
+
+    </section>
+    <!-- End Section Likes, Comments & Share -->
+  </button>
+
+</div>
+<!-- End List Posts -->
+
+<!-- List Posts -->
+<div class="mb-5">
+
+  <button class="px-5 pt-5 pb-2 rounded-xl w-full bg-white border border-gray-200 hover:shadow space-y-7">
+
+    <!-- Section User -->
+    <section class="flex items-center gap-x-3">
+
+      <!-- Photo -->
+      <button class="size-10 rounded-full overflow-hidden min-w-10">
+        <div class="size-full bg-primary text-white text-xl font-semibold flex items-center justify-center">J</div>
+        <!-- <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover"> -->
+      </button>
+
+      <!-- Details -->
+      <div class="w-full space-y-1">
+        <!-- Name & Role -->
+        <div class="flex items-center gap-x-2">
+          <a href="#"
+            class="text-sm font-semibold hover:underline">
+            Juan Pérez
+          </a>
+        </div>
+
+        <!-- Area -->
+        <!-- <a href="#"
+          class="block text-xs hover:underline w-fit">
+          Ingeniería de Sistemas e Informática
+        </a> -->
+
+        <!-- Date & Type Post -->
+        <div class="flex items-center gap-x-2">
+          <p class="text-xs text-gray-600 text-nowrap">26 de septiembre a las 7:31 p.m.</p>
+          <div class="size-1 rounded-full bg-gray-600"></div>
+          <div class="flex items-center gap-x-1">
+            <lucide-icon [name]="Users" class="size-3.5 text-gray-600" />
+            <span class="max-sm:hidden text-xs text-gray-600">Grupal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="flex items-center">
+        <!-- Button More -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="EllipsisVertical" class="size-4 rotate-45  " />
+        </button>
+
+        <!-- Button Close -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="X" class="size-4 rotate-45" />
+        </button>
+      </div>
+    </section>
+    <!-- End Section User -->
+
+    <!-- Section Content -->
+    <section class="space-y-1 text-start">
+
+      <!-- Title -->
+      <h1 class="text-lg font-semibold line-clamp-2">
+        Sistema de Gestión Universitaria con Arquitectura MicroServicios en JavaScript
+      </h1>
+
+      <!-- Desciption -->
+      <p class="text-sm text-gray-600">
+        Desarrollo de una plataforma web completa para la gestión integral de estudiants, profesores y mateias utilizando JavaScript, React, Node.js y microservicios.
+        Incluye módulos de inscipciones, notas, horarios y comunicación en tiempo real. El proyecto implementa clean architecture y patros de diseño para
+        garantizar escalabilidad y mantenimiento fácil.
+      </p>
+    </section>
+    <!-- End Section Content -->
+
+
+    <!-- Section Team -->
+    <section class="px-3 py-3 bg-gray-100 rounded-xl space-y-3">
+
+      <!-- Team & Participants -->
+      <div class="flex items-center gap-x-5 text-sm">
+        <p class="font-semibold">Equipo del proyecto</p>
+        <p class="ml-auto">4 integrantes</p>
+      </div>
+
+      <!-- Members -->
+      <div class="flex items-center gap-x-2">
+        <!-- Photos -->
+        <div class="flex items-center -space-x-2.5">
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">M</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">C</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">A</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">D</div>
+        </div>
+
+        <!-- Names -->
+        <p class="text-sm text-gray-600 text-start line-clamp-1">María Gonzales, Carlos Rodriguez, Ana López y 1 más</p>
+      </div>
+    </section>
+    <!-- End Section Team -->
+
+    <!-- Section View Document -->
+    <section class="px-3 py-3 bg-primary/10 rounded-xl flex items-center gap-x-2 -mt-5">
+      <lucide-icon [name]="Eye" class="text-primary size-5" />
+      <p class="text-sm line-clamp-1">Documento disponible: Archivo Zip</p>
+      <a href="#"
+        class="ml-auto text-start text-nowrap text-sm bg-white text-primary font-semibold border border-primary rounded-lg px-2.5 py-1.5"
+      >
+        Ver
+        <span class="max-sm:hidden">proyecto</span>
+      </a>
+    </section>
+    <!-- End Section View Document -->
+
+    <!-- Section Likes, Comments & Share -->
+    <section class="border-t pt-2 border-gray-200 flex items-center">
+
+      <!-- Likes -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="text-primary size-5" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.99 10.99 0 0 0 15 8" />
+        </svg>
+        <p class="text-sm">235 me gusta</p>
+      </button>
+
+      <!-- Comments -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <lucide-icon [name]="MessageCircle" class="text-primary size-5" />
+        <p class="text-sm">21 comentarios</p>
+      </button>
+
+      <!-- Share -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="size-5 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m21.707 11.293l-8-8A1 1 0 0 0 12 4v3.545A11.015 11.015 0 0 0 2 18.5V20a1 1 0 0 0 1.784.62a11.46 11.46 0 0 1 7.887-4.049c.05-.006.175-.016.329-.026V20a1 1 0 0 0 1.707.707l8-8a1 1 0 0 0 0-1.414M14 17.586V15.5a1 1 0 0 0-1-1c-.255 0-1.296.05-1.562.085a14 14 0 0 0-7.386 2.948A9.013 9.013 0 0 1 13 9.5a1 1 0 0 0 1-1V6.414L19.586 12Z" />
+        </svg>
+        <p class="text-sm">Compartir</p>
+      </button>
+
+    </section>
+    <!-- End Section Likes, Comments & Share -->
+  </button>
+
+</div>
+<!-- End List Posts -->
+
+<!-- List Posts -->
+<div class="mb-5">
+
+  <button class="px-5 pt-5 pb-2 rounded-xl w-full bg-white border border-gray-200 hover:shadow space-y-7">
+
+    <!-- Section User -->
+    <section class="flex items-center gap-x-3">
+
+      <!-- Photo -->
+      <button class="size-10 rounded-full overflow-hidden min-w-10">
+        <div class="size-full bg-primary text-white text-xl font-semibold flex items-center justify-center">J</div>
+        <!-- <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover"> -->
+      </button>
+
+      <!-- Details -->
+      <div class="w-full space-y-1">
+        <!-- Name & Role -->
+        <div class="flex items-center gap-x-2">
+          <a href="#"
+            class="text-sm font-semibold hover:underline">
+            Juan Pérez
+          </a>
+        </div>
+
+        <!-- Area -->
+        <!-- <a href="#"
+          class="block text-xs hover:underline w-fit">
+          Ingeniería de Sistemas e Informática
+        </a> -->
+
+        <!-- Date & Type Post -->
+        <div class="flex items-center gap-x-2">
+          <p class="text-xs text-gray-600 text-nowrap">26 de septiembre a las 7:31 p.m.</p>
+          <div class="size-1 rounded-full bg-gray-600"></div>
+          <div class="flex items-center gap-x-1">
+            <lucide-icon [name]="Users" class="size-3.5 text-gray-600" />
+            <span class="max-sm:hidden text-xs text-gray-600">Grupal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="flex items-center">
+        <!-- Button More -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="EllipsisVertical" class="size-4 rotate-45  " />
+        </button>
+
+        <!-- Button Close -->
+        <button class="size-8 rounded-full flex items-center justify-center hover:bg-gray-100">
+          <lucide-icon [name]="X" class="size-4 rotate-45" />
+        </button>
+      </div>
+    </section>
+    <!-- End Section User -->
+
+    <!-- Section Content -->
+    <section class="space-y-1 text-start">
+
+      <!-- Title -->
+      <h1 class="text-lg font-semibold line-clamp-2">
+        Sistema de Gestión Universitaria con Arquitectura MicroServicios en JavaScript
+      </h1>
+
+      <!-- Desciption -->
+      <p class="text-sm text-gray-600">
+        Desarrollo de una plataforma web completa para la gestión integral de estudiants, profesores y mateias utilizando JavaScript, React, Node.js y microservicios.
+        Incluye módulos de inscipciones, notas, horarios y comunicación en tiempo real. El proyecto implementa clean architecture y patros de diseño para
+        garantizar escalabilidad y mantenimiento fácil.
+      </p>
+    </section>
+    <!-- End Section Content -->
+
+
+    <!-- Section Team -->
+    <section class="px-3 py-3 bg-gray-100 rounded-xl space-y-3">
+
+      <!-- Team & Participants -->
+      <div class="flex items-center gap-x-5 text-sm">
+        <p class="font-semibold">Equipo del proyecto</p>
+        <p class="ml-auto">4 integrantes</p>
+      </div>
+
+      <!-- Members -->
+      <div class="flex items-center gap-x-2">
+        <!-- Photos -->
+        <div class="flex items-center -space-x-2.5">
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">M</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">C</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">A</div>
+          <div class="text-sm size-8 border-2 border-white bg-gray-500 rounded-full flex items-center justify-center font-semibold text-white">D</div>
+        </div>
+
+        <!-- Names -->
+        <p class="text-sm text-gray-600 text-start line-clamp-1">María Gonzales, Carlos Rodriguez, Ana López y 1 más</p>
+      </div>
+    </section>
+    <!-- End Section Team -->
+
+    <!-- Section View Document -->
+    <section class="px-3 py-3 bg-primary/10 rounded-xl flex items-center gap-x-2 -mt-5">
+      <lucide-icon [name]="Eye" class="text-primary size-5" />
+      <p class="text-sm line-clamp-1">Documento disponible: Archivo Zip</p>
+      <a href="#"
+        class="ml-auto text-start text-nowrap text-sm bg-white text-primary font-semibold border border-primary rounded-lg px-2.5 py-1.5"
+      >
+        Ver
+        <span class="max-sm:hidden">proyecto</span>
+      </a>
+    </section>
+    <!-- End Section View Document -->
+
+    <!-- Section Likes, Comments & Share -->
+    <section class="border-t pt-2 border-gray-200 flex items-center">
+
+      <!-- Likes -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="text-primary size-5" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.99 10.99 0 0 0 15 8" />
+        </svg>
+        <p class="text-sm">235 me gusta</p>
+      </button>
+
+      <!-- Comments -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <lucide-icon [name]="MessageCircle" class="text-primary size-5" />
+        <p class="text-sm">21 comentarios</p>
+      </button>
+
+      <!-- Share -->
+      <button class="w-full flex items-center justify-center py-3 gap-x-1 hover:bg-gray-100">
+        <svg class="size-5 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m21.707 11.293l-8-8A1 1 0 0 0 12 4v3.545A11.015 11.015 0 0 0 2 18.5V20a1 1 0 0 0 1.784.62a11.46 11.46 0 0 1 7.887-4.049c.05-.006.175-.016.329-.026V20a1 1 0 0 0 1.707.707l8-8a1 1 0 0 0 0-1.414M14 17.586V15.5a1 1 0 0 0-1-1c-.255 0-1.296.05-1.562.085a14 14 0 0 0-7.386 2.948A9.013 9.013 0 0 1 13 9.5a1 1 0 0 0 1-1V6.414L19.586 12Z" />
+        </svg>
+        <p class="text-sm">Compartir</p>
+      </button>
+
+    </section>
+    <!-- End Section Likes, Comments & Share -->
+  </button>
+
+</div>
+<!-- End List Posts -->

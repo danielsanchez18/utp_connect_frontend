@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, Search } from 'lucide-angular';
+import { LucideAngularModule, Search, SlidersHorizontal } from 'lucide-angular';
 
 @Component({
   selector: 'component-student-feed-search',
@@ -11,5 +11,6 @@ import { LucideAngularModule, Search } from 'lucide-angular';
 export class ComponentStudentFeedSearch {
 
   readonly Search = Search;
+  readonly SlidersHorizontal = SlidersHorizontal;
 
 }
