@@ -60,10 +60,10 @@ export const STUDENT_ROUTES: Routes = [
             path: 'ideas',
             loadComponent: () => import('@components/student/profile/ideas/ideas.component').then(m => m.ComponentStudentProfileIdeas)
           },
-          {
-            path: 'propuestas',
-            loadComponent: () => import('@components/student/profile/suggestions/suggestions.component').then(m => m.ComponentStudentProfileSuggestions)
-          }
+          // {
+          //   path: 'propuestas',
+          //   loadComponent: () => import('@components/student/profile/suggestions/suggestions.component').then(m => m.ComponentStudentProfileSuggestions)
+          // }
         ]
       },
       {
