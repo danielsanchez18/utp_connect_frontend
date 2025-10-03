@@ -14,6 +14,5 @@ export interface Post {
   comments?: any[];
   likes?: any[];
   reports?: any[];
-  isPublic: boolean;
   audit: Audit;
 }

@@ -1,0 +1,100 @@
+<section class="p-5 rounded-xl border border-gray-200 bg-white shadow-sm">
+
+  <!-- Title -->
+  <div class="mb-3">
+    <h2 class="text-lg font-semibold">Feed Settings</h2>
+    <p class="text-sm text-gray-600">
+      Aquí puedes configurar las opciones relacionadas con el feed.
+    </p>
+  </div>
+  <!-- End Title -->
+
+  <!-- Feed Settings Options -->
+  <div class="flex flex-col divide-y divide-gray-200">
+
+    <div class="flex items-center justify-between py-4">
+      <div>
+        <h3 class="font-medium">Publicaciones de última hora</h3>
+        <p class="text-sm text-gray-600">Notificación automática, En la aplicación y Email</p>
+      </div>
+      <label for="status" class="toggle">
+        <input type="checkbox" id="status" name="status" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="flex items-center justify-between py-4">
+      <div>
+        <h3 class="font-medium">Resumen diarios</h3>
+        <p class="text-sm text-gray-600">Notificación automática, En la aplicación y Email</p>
+      </div>
+      <label for="status" class="toggle">
+        <input type="checkbox" id="status" name="status" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+
+  </div>
+  <!-- End Feed Settings Options -->
+
+  <div class="mt-5">
+    <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">
+      Guardar Cambios
+    </button>
+  </div>
+
+</section>
+
+
+<style>
+  /* Toogle */
+/* Elimina el estilo predeterminado del checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Estilo del contenedor del toggle */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+}
+
+/* El fondo del toggle */
+.toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.1s;
+  border-radius: 30px;
+}
+
+/* El círculo del toggle */
+.toggle .slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  transition: 0.1s;
+}
+
+/* Cuando el checkbox está checked, cambia el color y la posición del círculo */
+input:checked + .slider {
+  background-color: #900c0c;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+</style>

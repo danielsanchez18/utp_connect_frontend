@@ -23,6 +23,8 @@
 <div id="hs-scale-animation-modal" class="hs-overlay hidden size-full fixed top-0 start-0 z-80 overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-scale-animation-modal-label">
   <div class="hs-overlay-animation-target hs-overlay-open:scale-100 hs-overlay-open:opacity-100 scale-95 opacity-0 ease-in-out transition-all duration-200 sm:max-w-xl sm:w-full m-3 sm:mx-auto min-h-[calc(100%-56px)] flex items-center">
     <form
+      [formGroup]="postForm"
+      (ngSubmit)="onSubmit()"
       class="w-full flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl pointer-events-auto">
 
       <!-- Title -->
@@ -43,53 +45,98 @@
       <!-- Content -->
       <div class="p-4 overflow-y-auto space-y-5">
 
-        <!-- Type -->
+                <!-- Type -->
         <div class="flex items-center gap-x-2">
           <p class="text-sm font-semibold pr-2">Tipo de publicación:</p>
 
-          <button class="flex items-center text-xs font-semibold gap-x-1 rounded-full border border-primary bg-primary text-white px-2.5 py-1.5">
+          <button
+            type="button"
+            (click)="setType('proyecto')"
+            [ngClass]="{
+              'bg-primary text-white': postForm.get('type')?.value === 'proyecto',
+              'bg-white text-primary': postForm.get('type')?.value !== 'proyecto'
+            }"
+            class="flex items-center text-xs font-semibold gap-x-1 rounded-full border border-primary px-2.5 py-1.5">
             <lucide-icon [name]="Folder" class="size-3.5" />
             <span>Proyecto</span>
           </button>
-          <button class="flex items-center text-xs font-semibold gap-x-1 rounded-full border border-primary bg-white text-primary px-2.5 py-1.5">
+          <button
+            type="button"
+            (click)="setType('idea')"
+            [ngClass]="{
+              'bg-primary text-white': postForm.get('type')?.value === 'idea',
+              'bg-white text-primary': postForm.get('type')?.value !== 'idea'
+            }"
+            class="flex items-center text-xs font-semibold gap-x-1 rounded-full border border-primary px-2.5 py-1.5">
             <lucide-icon [name]="Lightbulb" class="size-3.5" />
             <span>Idea</span>
           </button>
         </div>
 
         <!-- Title -->
-        <div class="grid gap-y-2">
-          <label for=""
-            class="text-sm font-semibold">Título del proyecto *</label>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold">Título del proyecto *</p>
           <input type="text"
+            id="title"
+            name="title"
+            formControlName="title"
             placeholder="Ej: Aplicación de escritura en línea para estudiantes"
-            class="px-4 py-2.5 border border-gray-200 rounded-lg text-sm">
+            class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+            required
+          >
+          <!-- Validaciones -->
+          <div *ngIf="postForm.get('title')?.touched && postForm.get('title')?.invalid" class="text-red-600 text-xs">
+            <div *ngIf="postForm.get('title')?.errors?.['required']">El título es obligatorio.</div>
+          </div>
         </div>
 
         <!-- Description -->
-        <div class="grid gap-y-2">
-          <label for=""
-            class="text-sm font-semibold">Descripción *</label>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold">Descripción *</p>
           <textarea
+            id="content"
+            name="content"
+            formControlName="content"
             rows="3"
             placeholder="Describe tu idea de forma breve y clara"
-            class="px-4 py-2.5 border border-gray-200 rounded-lg text-sm resize-none"></textarea>
+            class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md resize-none"
+            required
+          ></textarea>
+          <!-- Validaciones -->
+          <div *ngIf="postForm.get('content')?.touched && postForm.get('content')?.invalid" class="text-red-600 text-xs">
+            <div *ngIf="postForm.get('content')?.errors?.['required']">La descripción es obligatoria.</div>
+          </div>
         </div>
 
-        <!-- Tags -->
+        <!-- Hashtags -->
         <div class="grid gap-y-2">
-          <label for=""
-            class="text-sm font-semibold">Etiquetas (ej. #tecnologías #diseño #marketing)</label>
+          <label class="text-sm font-semibold">Etiquetas (ej. #tecnologías #diseño #marketing)</label>
           <div class="flex items-center gap-x-2 w-full">
             <div class="relative w-full">
-              <input type="text"
-                placeholder="Ej: Aplicación de escritura en línea para estudiantes"
-                class="px-4 pl-9 py-2.5 border border-gray-200 rounded-lg text-sm w-full">
+              <input
+                type="text"
+                [formControl]="hashtagInputControl"
+                (keydown.enter)="addHashtag(); $event.preventDefault()"
+                placeholder="Ej: tecnologías"
+                class="px-4 pl-9 py-2.5 border border-gray-200 rounded-lg text-sm w-full"
+                maxlength="30"
+              >
               <p class="text-gray-600 absolute px-4 py-2 top-0 start-0 text-lg font-semibold">#</p>
             </div>
-            <button class="bg-primary px-2.5 py-2.5 rounded-lg text-white">
+            <button type="button"
+              (click)="addHashtag()"
+              class="bg-primary px-2.5 py-2.5 rounded-lg text-white">
               <lucide-icon [name]="Plus" class="size-5 stroke-2" />
             </button>
+          </div>
+          <!-- Mostrar hashtags agregados -->
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span *ngFor="let tag of hashtags; let i = index" class="bg-primary/10 text-primary px-3 py-1 rounded-full flex items-center gap-x-1 text-xs font-semibold">
+              #{{ tag }}
+              <button type="button" (click)="removeHashtag(i)" class="ml-1 text-primary hover:text-red-600">
+                <lucide-icon [name]="X" class="size-3" />
+              </button>
+            </span>
           </div>
         </div>
 
@@ -104,27 +151,25 @@
 
         <!-- Select Colabs -->
         <div class="grid gap-y-2">
-          <label for=""
-            class="text-sm font-semibold">¿Solicitar colaboración en la idea?</label>
+          <label class="text-sm font-semibold">¿Solicitar colaboración en la idea?</label>
           <div class="flex items-center">
             <input type="radio"
-              name="hs-default-radio"
+              id="colab-si"
+              formControlName="isCollaborative"
               class="shrink-0 border-gray-700 rounded-full text-primary focus:ring-primary checked:border-primary disabled:opacity-50 disabled:pointer-events-none"
-              id="hs-default-radio">
-
-            <label for="hs-default-radio" class="text-sm ms-2 font-semibold mr-5">Sí</label>
+              [value]="'sí'">
+            <label for="colab-si" class="text-sm ms-2 font-semibold mr-5">Sí</label>
 
             <input type="radio"
-              name="hs-default-radio"
+              id="colab-no"
+              formControlName="isCollaborative"
               class="shrink-0 border-gray-700 rounded-full text-primary focus:ring-primary checked:border-primary disabled:opacity-50 disabled:pointer-events-none"
-              id="hs-checked-radio"
-              checked="">
-
-            <label for="hs-checked-radio" class="text-sm ms-2 font-semibold">No</label>
+              [value]="'no'">
+            <label for="colab-no" class="text-sm ms-2 font-semibold">No</label>
           </div>
 
-          <!-- If colabs are selected -->
-          <div class="px-4 py-3 grid grid-cols-[auto_1fr] gap-x-3 bg-primary/10 rounded-xl">
+          <!-- Mostrar solo si selecciona "sí" -->
+          <div *ngIf="postForm.get('isCollaborative')?.value === 'sí'" class="px-4 py-3 grid grid-cols-[auto_1fr] gap-x-3 bg-primary/10 rounded-xl">
             <div class="mt-1">
               <lucide-icon [name]="Users" class="size-4 text-primary" />
             </div>
@@ -147,10 +192,12 @@
               "optionClasses": "py-2 px-4 w-full text-sm cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100",
               "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-primary \" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
               "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-            }' class="hidden">
-              <option>Pública</option>
-              <option>Solo amigos</option>
-              <option>Solo yo</option>
+            }' class="hidden"
+              formControlName="privacy"
+            >
+              <option value="público">Pública</option>
+              <option value="amigos">Solo amigos</option>
+              <option value="yo">Solo yo</option>
             </select>
           </div>
         </div>
@@ -167,8 +214,10 @@
         </button>
 
         <button type="button"
+          [disabled]="loading || postForm.invalid"
+          (click)="onSubmit()"
           class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-primary text-white hover:bg-primar-darky-dark focus:outline-hidden focus:bg-primary-dark disabled:opacity-50 disabled:pointer-events-none">
-          Publicar
+          {{ loading ? 'Publicando...' : 'Publicar' }}
         </button>
       </div>
       <!-- End Buttons -->
@@ -178,3 +227,22 @@
 </div>
 
 <!-- End Modal Add Post -->
+
+
+<!-- Modal de error de registro de usuario -->
+<div id="alerts-error"
+  class="hs-overlay hidden size-full fixed top-0 start-0 z-50 overflow-x-hidden overflow-y-auto pointer-events-none"
+  role="dialog" tabindex="-1" aria-labelledby="alerts-error-label">
+
+  <component-shared-alerts-error
+    [message]="errorMessage"
+    [btnPrimary]="'Cerrar'"
+  />
+
+</div>
+
+<!-- Botones de acción -->
+<button type="button"
+  class="hidden" id="open-error-modal"
+  aria-haspopup="dialog" aria-expanded="false" aria-controls="alerts-error" data-hs-overlay="#alerts-error"
+></button>

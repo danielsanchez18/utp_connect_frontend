@@ -13,12 +13,16 @@ export class PostService {
   private http = inject(HttpClient);
   private apiUrl = `${API_URL}/posts`;
 
-  create(post: Post, mediaFiles?: File[]): Observable<Post> {
-    const formData = new FormData();
-    formData.append('post', JSON.stringify(post));
-    if (mediaFiles) {
-      mediaFiles.forEach(file => formData.append('mediaFiles', file));
-    }
+  // create(post: Post, mediaFiles?: File[]): Observable<Post> {
+  //   const formData = new FormData();
+  //   formData.append('post', JSON.stringify(post));
+  //   if (mediaFiles) {
+  //     mediaFiles.forEach(file => formData.append('mediaFiles', file));
+  //   }
+  //   return this.http.post<Post>(this.apiUrl, formData);
+  // }
+
+  create(formData: FormData): Observable<Post> {
     return this.http.post<Post>(this.apiUrl, formData);
   }
 
