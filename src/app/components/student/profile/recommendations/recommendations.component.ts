@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { LucideAngularModule, UserPlus } from 'lucide-angular';
 
 @Component({
   selector: 'component-student-profile-recommendations',
-  imports: [],
-  templateUrl: './suggestions.component.html',
+  imports: [
+    LucideAngularModule
+  ],
+  templateUrl: './recommendations.component.html',
 })
-export class ComponentStudentProfileRecommendations { }
+export class ComponentStudentProfileRecommendations {
+
+  readonly UserPlus = UserPlus;
+
+}
