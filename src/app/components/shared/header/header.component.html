@@ -22,15 +22,25 @@
       <button id="hs-dropdown-default" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown"
         class="hs-dropdown-toggle flex items-center gap-x-3 sm:pl-3 sm:border-l border-gray-400">
         <div class="text-end hidden sm:block">
-          <p class="text-sm">Hola,
-            <span class="font-semibold">
-              Juan Daniel
-            </span>
-          </p>
-          <p class="text-xs text-gray-600">Estudiante</p>
+          <ng-container *ngIf="!loadingUser(); else loadingUserTpl">
+            <p class="text-sm">Hola,
+              <span class="font-semibold">
+                {{ userName }}
+              </span>
+            </p>
+            <p class="text-xs text-gray-600">{{ userRole }}</p>
+          </ng-container>
+          <ng-template #loadingUserTpl>
+            <p class="text-sm">Cargando...</p>
+          </ng-template>
         </div>
-        <div class="size-8 rounded-full overflow-hidden bg-gray-200">
-          <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover">
+        <div class="size-8 rounded-full overflow-hidden bg-primary flex items-center justify-center">
+          <ng-container *ngIf="userAvatar; else showInitial">
+            <img [src]="userAvatar" alt="avatar" class="h-full w-full object-cover">
+          </ng-container>
+          <ng-template #showInitial>
+            <span class="text-lg font-semibold text-white">{{ userInitial }}</span>
+          </ng-template>
         </div>
         <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -41,7 +51,7 @@
 
       <!-- Menu -->
       <div
-        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+        class="z-40 hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
         role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
         <div class="p-1 space-y-0.5">
           <a href="#"

@@ -7,7 +7,8 @@
             "skipStyle": true
         },
         "angular-component": {
-            "skipDisplayBlock": true
+            "skipDisplayBlock": true,
+            "skipChangeDetectionOnPush": true
         }
     }
 }

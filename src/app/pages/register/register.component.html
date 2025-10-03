@@ -22,7 +22,9 @@
     <!-- End Title -->
 
     <!-- Form -->
-    <form class="grid grid-cols-2 gap-5">
+    <form [formGroup]="userForm"
+      (ngSubmit)="onSubmit()"
+      class="grid grid-cols-2 gap-5">
       <div class="flex items-center gap-x-2 col-span-2 mb-2">
         <p class="text-gray-600">
           <span class="text-gray-950 font-semibold">Registra</span>
@@ -40,10 +42,20 @@
         <p class="text-sm font-semibold">Nombre</p>
         <!-- Input Name -->
         <input type="text"
-          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+          id="name"
+          name="name"
+          formControlName="name"
+          maxlength="50"
           placeholder="Ingrese su nombre"
+          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
           required
         >
+        <!-- Validaciones -->
+        <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid" class="text-red-600 text-xs">
+          <div *ngIf="userForm.get('name')?.errors?.['required']">El nombre es obligatorio.</div>
+          <div *ngIf="userForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+          <div *ngIf="userForm.get('name')?.errors?.['maxlength']">El nombre no debe exceder los 50 caracteres.</div>
+        </div>
       </div>
       <!-- End Name -->
 
@@ -52,10 +64,20 @@
         <p class="text-sm font-semibold">Apellidos</p>
         <!-- Input Lastname -->
         <input type="text"
-          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+          id="lastName"
+          name="lastName"
+          formControlName="lastName"
+          maxlength="50"
           placeholder="Ingrese sus apellidos"
+          class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
           required
         >
+        <!-- Validaciones -->
+        <div *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid" class="text-red-600 text-xs">
+          <div *ngIf="userForm.get('lastName')?.errors?.['required']">El apellido es obligatorio.</div>
+          <div *ngIf="userForm.get('lastName')?.errors?.['minlength']">El apellido debe tener al menos 3 caracteres.</div>
+          <div *ngIf="userForm.get('lastName')?.errors?.['maxlength']">El apellido no debe exceder los 50 caracteres.</div>
+        </div>
       </div>
       <!-- End Lastname -->
 
@@ -65,16 +87,21 @@
         <!-- Input Email -->
         <div class="relative">
           <input type="email"
-            class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
+            id="email"
+            name="email"
+            formControlName="email"
+            maxlength="100"
             placeholder="Ingresa tu correo electrónico"
+            class="w-full outline-none border-gray-400 px-4 text-black py-2.5 pr-10 text-sm rounded-md"
             required
           >
           <lucide-icon [name]="AtSign" class="absolute text-gray-500 size-5 top-1/2 -translate-y-1/2 right-2" />
         </div>
-        <!-- <div class="flex items-center gap-x-2">
-          <lucide-icon [name]="Info" class="text-gray-800 size-4" />
-          <p class="text-xs text-gray-800">Ejemplo de usuario: U1533148 (no digitar el &#64;utp.edu.pe)</p>
-        </div> -->
+        <!-- Validaciones -->
+        <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid" class="text-red-600 text-xs">
+          <div *ngIf="userForm.get('email')?.errors?.['email']">Ingrese un correo válido.</div>
+          <div *ngIf="userForm.get('email')?.errors?.['maxlength']">El correo no debe exceder los 100 caracteres.</div>
+        </div>
       </div>
       <!-- End Email -->
 
@@ -85,6 +112,9 @@
         <div class="relative">
           <input type="password"
             id="password"
+            name="password"
+            formControlName="password"
+            maxlength="100"
             class="w-full outline-none border-gray-400 text-black px-4 py-2.5 pr-10 text-sm rounded-md"
             placeholder="Ingresa tu contraseña"
             required
@@ -102,17 +132,24 @@
             </svg>
           </button>
         </div>
+        <!-- Validaciones -->
+        <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid" class="text-red-600 text-xs">
+          <div *ngIf="userForm.get('password')?.errors?.['required']">La contraseña debe ser obligatoria.</div>
+        </div>
       </div>
       <!-- End Password -->
 
       <!-- Button -->
       <div class="mt-5 col-span-2">
         <!-- Button -->
-        <a href="/">
-          <button class="text-sm font-semibold text-white text-center w-full rounded-md py-2.5 px-4 bg-primary">
-            Crear Cuenta
-          </button>
-        </a>
+        <button
+          type="submit"
+          class="text-sm font-semibold text-white text-center w-full rounded-md py-2.5 px-4 bg-primary disabled:opacity-70 disabled:cursor-not-allowed"
+          [disabled]="userForm.invalid"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="alerts-confirm" data-hs-overlay="#alerts-confirm"
+        >
+          Crear Cuenta
+        </button>
       </div>
       <!-- End Button & Forgot Password -->
     </form>
@@ -122,3 +159,39 @@
   <!-- End Form Login -->
 
 </section>
+
+
+<!-- Modal de éxito de registro de usuario -->
+<div id="alerts-success"
+  class="hs-overlay hidden size-full fixed top-0 start-0 z-50 overflow-x-hidden overflow-y-auto pointer-events-none"
+  role="dialog" tabindex="-1" aria-labelledby="alerts-success-label">
+
+  <component-shared-alerts-success
+    [message]="successMessage"
+    [linkPrimary]="'/core/usuarios'"
+    />
+
+</div>
+
+<!-- Modal de error de registro de usuario -->
+<div id="alerts-error"
+  class="hs-overlay hidden size-full fixed top-0 start-0 z-50 overflow-x-hidden overflow-y-auto pointer-events-none"
+  role="dialog" tabindex="-1" aria-labelledby="alerts-error-label">
+
+  <component-shared-alerts-error
+    [message]="errorMessage"
+    [btnPrimary]="'Cerrar'"
+  />
+
+</div>
+
+<!-- Botones de acción -->
+<button type="button"
+  class="hidden" id="open-error-modal"
+  aria-haspopup="dialog" aria-expanded="false" aria-controls="alerts-error" data-hs-overlay="#alerts-error"
+></button>
+
+<button type="button"
+  class="hidden" id="open-success-modal"
+  aria-haspopup="dialog" aria-expanded="false" aria-controls="alerts-success" data-hs-overlay="#alerts-success"
+></button>
