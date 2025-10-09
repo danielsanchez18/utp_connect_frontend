@@ -50,19 +50,25 @@
   <div class="border-t border-gray-200 py-5 flex gap-x-3">
 
     <!-- Photo -->
-    <div class="size-10 rounded-full overflow-hidden bg-primary flex items-center justify-center">
-      <ng-container *ngIf="userAvatar; else showInitial">
+    <div class="size-10 min-w-10 rounded-full overflow-hidden bg-primary flex items-center justify-center">
+      <!-- <ng-container *ngIf="userAvatar; else showInitial">
         <img [src]="userAvatar" alt="avatar" class="h-full w-full object-cover">
       </ng-container>
       <ng-template #showInitial>
         <span class="text-lg font-semibold text-white">{{ userInitial }}</span>
-      </ng-template>
+      </ng-template> -->
+      <img src="https://avatars.githubusercontent.com/u/148911330?v=4" alt="" class="h-full w-full object-cover">
     </div>
 
     <!-- Name & Role -->
-    <div>
+    <!-- <div>
       <p class="text-sm font-semibold line-clamp-1">{{ userName }}</p>
       <p class="text-xs text-gray-600">{{ userRole }}</p>
+    </div> -->
+
+    <div>
+      <p class="text-sm font-semibold line-clamp-1">Juan Daniel Sánchez Pisfil</p>
+      <p class="text-xs text-gray-600">Estudiante</p>
     </div>
 
   </div>
